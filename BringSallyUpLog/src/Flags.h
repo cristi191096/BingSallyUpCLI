@@ -3,12 +3,13 @@
 enum class ArgFlag
 {
     UNKNOWN = 0x00,
-    HELP = 0x01,// 1 << 1       // 0000 0001
-    SHOW = 0x02,// 1 << 2       // 0000 0010
-    SETS = 0x04,// 1 << 3       // 0000 0100
-    REPS = 0x08,// 1 << 4       // 0000 1000
+    HELP = 1,// 1               // 0000 0001
+    SHOW = 2,// 1 << 1          // 0000 0010
+    SETS = 4,// 1 << 2          // 0000 0100
+    REPS = 8,// 1 << 3          // 0000 1000
+    GET_TOKEN = 16,// 1 << 4    // 0001 0000
 
-    ALL = HELP | SHOW | SETS | REPS,        // or ANY?
+    ALL = HELP | SHOW | SETS | REPS | GET_TOKEN,        // or ANY?
     INVALID_MAX_VALUE = 0x32
 };
 

@@ -81,13 +81,18 @@ ReturnArgData ProcessArguments(int argc, char** argv, Flags<ArgFlag>& argFlags)
             argFlags.set(ArgFlag::SHOW);
           
         }
+        if (strcmp(argv[i], "--getToken") == 0 || strcmp(argv[i], "-gt") == 0)
+        {
+            argFlags.set(ArgFlag::GET_TOKEN);
+
+        }
     }
 
     if (argFlags.test(ArgFlag::REPS) && argFlags.test(ArgFlag::SETS))
     {
         return { ErrorHandler(Error::OK, "Success"), setCount, repCount };
     }
-    else if(argFlags.test(ArgFlag::SHOW))
+    else if(argFlags.test(ArgFlag::SHOW) || argFlags.test(ArgFlag::GET_TOKEN))
     {
         return { ErrorHandler(Error::OK, "Either the number of reps or the number of sets was not set"), 0, 0 };
     }
@@ -115,7 +120,7 @@ int main(int argc, char** argv)
         return 0;
     }
 
-    if (argFlags.test(ArgFlag::REPS | ArgFlag::SETS))
+    if (argFlags.test(ArgFlag::REPS) && argFlags.test(ArgFlag::SETS))
     {
         auto now = std::chrono::system_clock::now();
         auto in_time_t = std::chrono::system_clock::to_time_t(now);
@@ -133,6 +138,13 @@ int main(int argc, char** argv)
         Exercises ex;
         ProcessDataFromFile(ex);
         PrintLogs(ex);
+    }
+
+    if (argFlags.test(ArgFlag::GET_TOKEN))
+    {
+        Exercises ex;
+        ProcessDataFromFile(ex);
+        PrintToken(ex);
     }
 
 
