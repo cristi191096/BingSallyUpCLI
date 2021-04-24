@@ -8,6 +8,7 @@
 #include <chrono>
 #include <string>
 #include <sstream>
+#include <windows.h>
 
 #include "src/Flags.h"
 #include "src/ErrorHandler.h"
@@ -116,7 +117,10 @@ int main(int argc, char** argv)
 
     if (data.err != Error::OK || argFlags.test(ArgFlag::HELP))
     {
+
+   
         PrintUsage();
+     
         return 0;
     }
 

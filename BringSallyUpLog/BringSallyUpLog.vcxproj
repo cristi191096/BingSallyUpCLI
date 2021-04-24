@@ -136,6 +136,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(WindowsSDK_LibraryPath_x64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -149,6 +150,7 @@
     <ClCompile Include="src\File.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\color_console.h" />
     <ClInclude Include="src\ErrorHandler.h" />
     <ClInclude Include="src\Exercise.h" />
     <ClInclude Include="src\File.h" />
