@@ -19,12 +19,12 @@ void PrintLogs(const Exercises& exercises)
         return;
     }
 
-    std::cout << "Loading..." << std::endl;
-    for (int i = 0; i < 100; i++)
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds(30));
-        std::cout << std::to_string(i+1).c_str() << "%" << "\r" << std::flush;
-    }
+    //std::cout << "Loading..." << std::endl;
+    //for (int i = 0; i < 100; i++)
+    //{
+    //    std::this_thread::sleep_for(std::chrono::milliseconds(30));
+    //    std::cout << std::to_string(i+1).c_str() << "%" << "\r" << std::flush;
+    //}
 
     std::cout << std::endl << "=============================| LOGS |==============================" << std::endl;
     std::cout << "\tDate\t | \tDay\t | \tSets\t | \tReps" << std::endl;
